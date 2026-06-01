@@ -1,0 +1,11 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "F8T7NU9SKB.com.gosim.app", 
+        "paths": ["/success", "/failure", "/success/*", "/failure/*", "*"]
+      }
+    ]
+  }
+}

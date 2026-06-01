@@ -1,0 +1,195 @@
+/* FontAwesome imports from public assets */
+@import "../public/assets/faspro/css/all.css";
+@import "../public/assets/faspro/css/brands.css";
+@import "tailwindcss";
+
+/* Tajawal Font for Arabic */
+@font-face {
+  font-family: "Tajawal";
+  font-weight: 300;
+  font-style: normal;
+  src: url("/assets/fonts/Tajawal/Tajawal-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Tajawal";
+  font-weight: 400;
+  font-style: normal;
+  src: url("/assets/fonts/Tajawal/Tajawal-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Tajawal";
+  font-weight: 500;
+  font-style: normal;
+  src: url("/assets/fonts/Tajawal/Tajawal-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Tajawal";
+  font-weight: 700;
+  font-style: normal;
+  src: url("/assets/fonts/Tajawal/Tajawal-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Tajawal";
+  font-weight: 900;
+  font-style: normal;
+  src: url("/assets/fonts/Tajawal/Tajawal-Black.ttf") format("truetype");
+}
+
+/* Mont Font for English/French */
+@font-face {
+  font-family: "Mont";
+  font-weight: 900;
+  font-style: normal;
+  src: url("/assets/fonts/Mont-Black.otf") format("opentype");
+}
+@font-face {
+  font-family: "Mont";
+  font-weight: 800;
+  font-style: normal;
+  src: url("/assets/fonts/Mont-Heavy.otf") format("opentype");
+}
+@font-face {
+  font-family: "Mont";
+  font-weight: 700;
+  font-style: normal;
+  src: url("/assets/fonts/Mont-Bold.otf") format("opentype");
+}
+@font-face {
+  font-family: "Mont";
+  font-weight: 600;
+  font-style: normal;
+  src: url("/assets/fonts/Mont-SemiBold.otf") format("opentype");
+}
+@font-face {
+  font-family: "Mont";
+  font-weight: 500;
+  font-style: normal;
+  src: url("/assets/fonts/Mont-Regular.otf") format("opentype");
+}
+@font-face {
+  font-family: "Mont";
+  font-weight: 400;
+  font-style: normal;
+  src: url("/assets/fonts/Mont-Book.otf") format("opentype");
+}
+@font-face {
+  font-family: "Mont";
+  font-weight: 300;
+  font-style: normal;
+  src: url("/assets/fonts/Mont-Light.otf") format("opentype");
+}
+
+@theme static {
+  --color-primary: #DB143C;
+  --color-secondary: #DB143C50;
+  --color-black: #090909;
+}
+
+@layer base {
+  h1 {
+    @apply text-2xl sm:text-[27px] md:text-3xl lg:text-4xl font-extrabold text-black;
+  }
+  h2 {
+    @apply text-xl sm:text-[22px] md:text-2xl lg:text-3xl font-extrabold text-black;
+  }
+  h3 {
+    @apply text-lg sm:text-[19px] md:text-xl lg:text-2xl font-bold text-black;
+  }
+  h4 {
+    @apply sm:text-[17px] md:text-lg lg:text-xl font-bold text-black;
+  }
+  h5 {
+    @apply text-sm sm:text-[15px] md:text-base lg:text-lg font-bold text-black;
+  }
+  h6 {
+    @apply text-xs sm:text-[13px] md:text-sm lg:text-base font-bold text-black;
+  }
+  p {
+    @apply text-sm md:text-base text-black font-medium;
+  }
+  label {
+    @apply text-sm lg:text-base font-medium text-gray-700;
+  }
+  span {
+    @apply font-medium;
+  }
+  input {
+    @apply border border-gray-200 rounded-xl py-4 px-4 text-black font-medium;
+  }
+  select {
+    @apply border border-gray-200 rounded-xl py-5 px-4 text-black font-medium;
+  }
+  textarea {
+    @apply border border-gray-200 rounded-xl p-2 text-black font-medium;
+  }
+  i:not([class*="fa"]):not(.fa):not(.fas):not(.far):not(.fal):not(.fad):not(.fab) {
+    @apply text-primary;
+  }
+  td, th {
+    @apply px-2;
+  }
+  li {
+    @apply list-disc mx-4 text-sm font-medium;
+  }
+  ol {
+    @apply mt-4;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-6 py-4 rounded-2xl flex items-center justify-center disabled:cursor-not-allowed gap-2 whitespace-nowrap disabled:bg-secondary disabled:text-white bg-primary text-white font-bold border border-transparent;
+  }
+  .btn-secondary {
+    @apply px-6 py-4 rounded-2xl flex items-center justify-center disabled:cursor-not-allowed gap-2 whitespace-nowrap disabled:bg-secondary disabled:text-gray-400 bg-white text-black font-bold border border-gray-300;
+  }
+}
+
+@layer utilities {
+  .form-group {
+    @apply flex flex-col gap-1;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Ensure FontAwesome icons work properly in all languages */
+[class*="fa-"],
+.fa,
+.fas,
+.far,
+.fal,
+.fab {
+  font-family: "Font Awesome 6 Pro", "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
+  direction: ltr !important;
+  font-style: normal !important;
+}
+
+/* Arabic language font override */
+.arabic-lang,
+[dir="rtl"] {
+  font-family: "Tajawal", sans-serif;
+}
+
+/* Default font */
+body {
+  font-family: "Mont", sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Animate pulse for device modal */
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: .9; transform: scale(1.03); }
+}
+.animate-pulse-custom {
+  animation: pulse 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}

@@ -1,0 +1,108 @@
+@import url("./font.css");
+@import './fasfree/css/all.css';
+@import './faspro/css/all.css';
+@import './faspro/css/brands.css';
+
+@import "tailwindcss";
+
+@theme static {
+  --color-primary: #DB143C;
+  --color-secondary: #DB143C50;
+  --color-black: #090909;
+}
+
+@layer base {
+  h1 {
+    @apply text-2xl sm:text-[27px] md:text-3xl lg:text-4xl font-extrabold text-black;
+  }
+
+  h2 {
+    @apply text-xl sm:text-[22px] md:text-2xl lg:text-3xl font-extrabold text-black;
+  }
+
+  h3 {
+    @apply text-lg sm:text-[19px] md:text-xl lg:text-2xl font-bold text-black;
+  }
+
+  h4 {
+    @apply sm:text-[17px] md:text-lg lg:text-xl font-bold text-black;
+  }
+
+  h5 {
+    @apply text-sm sm:text-[15px] md:text-base lg:text-lg font-bold text-black;
+  }
+
+  h6 {
+    @apply text-xs sm:text-[13px] md:text-sm lg:text-base font-bold text-black;
+  }
+
+  p {
+    @apply text-sm md:text-base text-black font-medium;
+  }
+
+  label {
+    @apply text-sm lg:text-base font-medium text-gray-700;
+  }
+
+  span {
+    @apply font-medium;
+  }
+
+  input {
+    @apply border border-gray-200 rounded-xl py-4 px-4 text-black font-medium;
+  }
+
+  select {
+    @apply border border-gray-200 rounded-xl py-5 px-4 text-black font-medium;
+  }
+
+  textarea {
+    @apply border border-gray-200 rounded-xl p-2 text-black font-medium;
+  }
+
+  i:not([class*="fa"]):not(.fa):not(.fas):not(.far):not(.fal):not(.fad):not(.fab) {
+    @apply text-primary;
+  }
+
+  td,
+  th {
+    @apply px-2;
+  }
+
+  li {
+    @apply list-disc mx-4 text-sm font-medium;
+  }
+
+  ol {
+    @apply mt-4;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-6 py-4 rounded-2xl flex items-center justify-center disabled:cursor-not-allowed gap-2 whitespace-nowrap disabled:bg-secondary disabled:text-white bg-primary text-white font-bold border border-transparent;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-4 rounded-2xl flex items-center justify-center disabled:cursor-not-allowed gap-2 whitespace-nowrap disabled:bg-secondary disabled:text-gray-400 bg-white text-black font-bold border border-gray-300;
+  }
+}
+
+@layer utilities{
+  .form-group{
+    @apply flex flex-col gap-1
+  }
+}
+
+
+/* Ensure FontAwesome icons work properly in all languages */
+[class*="fa-"],
+.fa,
+.fas,
+.far,
+.fal,
+.fab {
+  font-family: "Font Awesome 6 Pro", "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
+  direction: ltr !important;
+  font-style: normal !important;
+}

@@ -1,0 +1,114 @@
+/* Tajawal Font for Arabic */
+/* Tajawal-Light */
+@font-face {
+  font-family: "Tajawal";
+  font-weight: 300;
+  font-style: normal;
+  src: url("/assets/fonts/Tajawal/Tajawal-Light.ttf") format("truetype");
+}
+
+/* Tajawal-Regular */
+@font-face {
+  font-family: "Tajawal";
+  font-weight: 400;
+  font-style: normal;
+  src: url("/assets/fonts/Tajawal/Tajawal-Regular.ttf") format("truetype");
+}
+
+/* Tajawal-Medium */
+@font-face {
+  font-family: "Tajawal";
+  font-weight: 500;
+  font-style: normal;
+  src: url("/assets/fonts/Tajawal/Tajawal-Medium.ttf") format("truetype");
+}
+
+/* Tajawal-Bold */
+@font-face {
+  font-family: "Tajawal";
+  font-weight: 700;
+  font-style: normal;
+  src: url("/assets/fonts/Tajawal/Tajawal-Bold.ttf") format("truetype");
+}
+
+/* Tajawal-Black */
+@font-face {
+  font-family: "Tajawal";
+  font-weight: 900;
+  font-style: normal;
+  src: url("/assets/fonts/Tajawal/Tajawal-Black.ttf") format("truetype");
+}
+
+/* Mont Font for English/French */
+/* Mont-Black */
+@font-face {
+  font-family: "Mont";
+  font-weight: 900;
+  font-style: normal;
+  src: url("/assets/fonts/Mont-Black.otf") format("opentype");
+}
+
+/* Mont-Heavy */
+@font-face {
+  font-family: "Mont";
+  font-weight: 800;
+  font-style: normal;
+  src: url("/assets/fonts/Mont-Heavy.otf") format("opentype");
+}
+
+
+/* Mont-Bold */
+@font-face {
+  font-family: "Mont";
+  font-weight: 700;
+  font-style: normal;
+  src: url("/assets/fonts/Mont-Bold.otf") format("opentype");
+}
+
+/* Mont-SemiBold */
+@font-face {
+  font-family: "Mont";
+  font-weight: 600;
+  font-style: normal;
+  src: url("/assets/fonts/Mont-SemiBold.otf") format("opentype");
+}
+
+/* Mont-Regular */
+@font-face {
+  font-family: "Mont";
+  font-weight: 500;
+  font-style: normal;
+  src: url("/assets/fonts/Mont-Regular.otf") format("opentype");
+}
+
+/* Mont-Book */
+@font-face {
+  font-family: "Mont";
+  font-weight: 400;
+  font-style: normal;
+  src: url("/assets/fonts/Mont-Book.otf") format("opentype");
+}
+
+/* Mont-Light */
+@font-face {
+  font-family: "Mont";
+  font-weight: 300;
+  font-style: normal;
+  src: url("/assets/fonts/Mont-Light.otf") format("opentype");
+}
+
+/* Mont-ExtraLight */
+@font-face {
+  font-family: "Mont";
+  font-weight: 200;
+  font-style: normal;
+  src: url("/assets/fonts/Mont-ExtraLight.otf") format("opentype");
+}
+
+/* Mont-Hairline */
+@font-face {
+  font-family: "Mont";
+  font-weight: 100;
+  font-style: normal;
+  src: url("/assets/fonts/Mont-Hairline.otf") format("opentype");
+}

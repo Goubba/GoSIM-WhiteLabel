@@ -1,0 +1,10 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.gosim.app",
+    "sha256_cert_fingerprints": [
+      "27:B4:4F:57:7D:B6:AA:43:14:62:A5:93:B7:F5:E6:C6:10:C2:C1:B7:82:EF:07:DD:9F:46:42:B7:3B:60:8C:7E"
+    ]
+  }
+}]
