@@ -100,9 +100,43 @@
 .fa,
 .fas,
 .far,
-.fal,
+.col,
 .fab {
   font-family: "Font Awesome 6 Pro", "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
   direction: ltr !important;
   font-style: normal !important;
+}
+
+/* Default font */
+body {
+  font-family: "Mont", sans-serif;
+}
+
+/* Arabic language font override */
+.arabic-lang,
+[dir="rtl"] {
+  font-family: "Tajawal", sans-serif !important;
+  text-align: right !important;
+}
+
+[dir="rtl"] input, [dir="rtl"] select, [dir="rtl"] textarea {
+  text-align: right !important;
+}
+
+/* Ensure absolute and flex directional layouts mirror correctly */
+[dir="rtl"] .absolute.left-0 {
+  left: auto !important;
+  right: 0 !important;
+}
+[dir="rtl"] .absolute.right-0 {
+  right: auto !important;
+  left: 0 !important;
+}
+[dir="rtl"] .pl-10 {
+  padding-left: 0.75rem !important;
+  padding-right: 2.5rem !important;
+}
+[dir="rtl"] .pr-10 {
+  padding-right: 0.75rem !important;
+  padding-left: 2.5rem !important;
 }

@@ -137,6 +137,9 @@ export default {
         indexStore.setLang(languageCode);
         this.$i18n.locale = languageCode;
 
+        const query = { ...this.$route.query, language: languageCode };
+        this.$router.replace({ query }).catch(() => {});
+
         const langAttribute = languageCode === 'ar' ? 'ar-DZ' : languageCode === 'en' ? 'en-US' : 'fr-DZ';
         document.documentElement.setAttribute('lang', langAttribute);
 

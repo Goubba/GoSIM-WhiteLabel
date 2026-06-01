@@ -7,9 +7,17 @@ import { Search } from './views/Search';
 import { PackagesList } from './views/PackagesList';
 import { Status } from './views/Status';
 
+import { useApp } from './context/AppContext';
+
 const AppContent: React.FC = () => {
+  const { language } = useApp();
+
   return (
-    <div id="root" className="min-h-screen flex flex-col bg-white">
+    <div 
+      id="root" 
+      className={`min-h-screen flex flex-col bg-white ${language === 'ar' ? 'arabic-lang' : ''}`}
+      dir={language === 'ar' ? 'rtl' : 'ltr'}
+    >
       {/* Dynamic Desktop Header Navbar */}
       <Header />
 

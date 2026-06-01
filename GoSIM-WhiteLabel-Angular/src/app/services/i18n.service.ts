@@ -3,6 +3,8 @@ import { en } from '../locales/en';
 import { fr } from '../locales/fr';
 import { ar } from '../locales/ar';
 
+import { BehaviorSubject, Observable } from 'rxjs';
+
 type Locale = 'en' | 'fr' | 'ar';
 
 const messages: Record<Locale, any> = { en, fr, ar };
@@ -12,6 +14,8 @@ const messages: Record<Locale, any> = { en, fr, ar };
 })
 export class I18nService {
   private _locale: Locale = 'fr';
+  private localeSubject = new BehaviorSubject<Locale>('fr');
+  locale$ = this.localeSubject.asObservable();
 
   get locale(): Locale {
     return this._locale;
@@ -19,6 +23,7 @@ export class I18nService {
 
   set locale(val: Locale) {
     this._locale = val;
+    this.localeSubject.next(val);
   }
 
   t(key: string, params?: Record<string, any>): string {

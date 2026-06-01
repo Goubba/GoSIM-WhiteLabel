@@ -101,6 +101,11 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const setLanguage = (lang: string) => {
     sessionStorage.setItem('language', lang);
     setLanguageState(lang);
+
+    // Update URL query parameter 'language' to match newly selected language code
+    const url = new URL(window.location.href);
+    url.searchParams.set('language', lang);
+    window.history.replaceState({}, '', url.toString());
   };
 
   const setCurrency = (curr: string) => {

@@ -5,7 +5,11 @@ export const currencyFormatter = (val: number, currency: string = 'DZD'): string
     minimumFractionDigits: decimals,
     maximumFractionDigits: decimals,
   }).format(val);
-  return `${data} ${curr}`;
+
+  const isArabic = sessionStorage.getItem('language') === 'ar';
+  const displayCurrency = (curr === 'DZD' && isArabic) ? 'د.ج' : curr;
+
+  return `${data} ${displayCurrency}`;
 };
 
 export const dateFormatterWithTime = (val: string): string => {

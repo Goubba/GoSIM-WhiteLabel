@@ -43,13 +43,13 @@ export const Search: React.FC = () => {
       });
   };
 
-  // Initial fetch on mount
+  // Fetch locations on mount or when language changes
   useEffect(() => {
-    fetchLocations();
+    fetchLocations(search);
     return () => {
       if (debounceTimer.current) clearTimeout(debounceTimer.current);
     };
-  }, []);
+  }, [language]);
 
   // Handle Search Input Change with Debounce
   const handleSearchChange = (val: string) => {
@@ -170,7 +170,7 @@ export const Search: React.FC = () => {
                           alt={location.name}
                           className="size-10 sm:size-12 rounded-full object-cover border border-gray-300 shrink-0"
                         />
-                        <div className="text-left overflow-hidden">
+                        <div className="text-left rtl:text-right overflow-hidden">
                           <p className="font-bold text-gray-900 truncate">{location.name}</p>
                           {location.fromPrice !== undefined && (
                             <span className="text-xs sm:text-sm text-gray-500 block truncate">

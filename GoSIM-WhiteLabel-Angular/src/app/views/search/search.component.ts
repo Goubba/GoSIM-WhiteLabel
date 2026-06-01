@@ -5,6 +5,7 @@ import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '../../pipes/translate.pipe';
 import { HttpService } from '../../services/http.service';
 import { UtilsService } from '../../services/utils.service';
+import { I18nService } from '../../services/i18n.service';
 
 @Component({
   selector: 'app-search',
@@ -65,7 +66,7 @@ import { UtilsService } from '../../services/utils.service';
               <p class="text-gray-600 mt-2 max-w-80">{{ 'home.noResultText' | t }}</p>
             </div>
             <button (click)="search = ''; getLocations()" class="btn-primary w-full mt-8">
-              {{ 'home.noResultButton' | t }}
+               {{ 'home.noResultButton' | t }}
             </button>
           </div>
 
@@ -79,7 +80,7 @@ import { UtilsService } from '../../services/utils.service';
                 </div>
                 <div class="flex gap-2 items-center justify-start font-medium text-sm p-3 text-gray-700">
                   <img [src]="location.image" class="size-10 sm:size-12 rounded-full object-cover border border-gray-400" />
-                  <div>
+                  <div class="rtl:text-right text-left">
                     <p class="line-clamp-1">{{ location.name }}</p>
                     <span class="text-xs sm:text-sm line-clamp-1" *ngIf="location.fromPrice">
                       {{ 'home.startingAt' | t }} {{ utils.currencyFormatter(location.fromPrice) }}
@@ -103,19 +104,24 @@ export class SearchViewComponent implements OnInit, OnDestroy {
   glob: any[] = [];
 
   private debounceTimer: any;
+  private langSub: any;
 
   constructor(
     private http: HttpService,
     public utils: UtilsService,
+    private i18n: I18nService,
     private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit() {
-    this.getLocations();
+    this.langSub = this.i18n.locale$.subscribe(() => {
+      this.getLocations();
+    });
   }
 
   ngOnDestroy() {
     if (this.debounceTimer) clearTimeout(this.debounceTimer);
+    if (this.langSub) this.langSub.unsubscribe();
   }
 
   get combinedRegions(): any[] {

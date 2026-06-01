@@ -131,6 +131,11 @@ export class App implements OnInit {
       this.indexService.setLang(languageCode);
       this.i18n.locale = languageCode as any;
 
+      // Update URL query parameter 'language' to match newly selected language code
+      const url = new URL(window.location.href);
+      url.searchParams.set('language', languageCode);
+      window.history.replaceState({}, '', url.toString());
+
       const langAttribute = languageCode === 'ar' ? 'ar-DZ' : languageCode === 'en' ? 'en-US' : 'fr-DZ';
       document.documentElement.setAttribute('lang', langAttribute);
 

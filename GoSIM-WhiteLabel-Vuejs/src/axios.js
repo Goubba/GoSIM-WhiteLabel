@@ -17,6 +17,11 @@ axiosClient.interceptors.request.use((config) => {
     config.baseURL = indexStore.host;
   }
 
+  if (config.url && (config.url.includes("locations") || config.url.includes("packages"))) {
+    config.params = config.params || {};
+    config.params.language = indexStore.lang || 'fr';
+  }
+
   return config;
 });
 

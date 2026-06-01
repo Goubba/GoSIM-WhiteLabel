@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { NgIf, NgFor, NgClass } from '@angular/common';
 import { RouterLink, ActivatedRoute, Router } from '@angular/router';
 import { TranslatePipe } from '../../pipes/translate.pipe';
@@ -168,7 +168,7 @@ import { I18nService } from '../../services/i18n.service';
     </div>
   `
 })
-export class PackagesListComponent implements OnInit {
+export class PackagesListComponent implements OnInit, OnDestroy {
   loading = false;
   paymentLoading = false;
   selectedPackage: any = {};
@@ -177,6 +177,7 @@ export class PackagesListComponent implements OnInit {
   quantity = 1;
   days = 1;
 
+  private langSub: any;
 
   constructor(
     private http: HttpService,
@@ -190,7 +191,15 @@ export class PackagesListComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.getPackages();
+    this.langSub = this.i18n.locale$.subscribe(() => {
+      this.getPackages();
+    });
+  }
+
+  ngOnDestroy() {
+    if (this.langSub) {
+      this.langSub.unsubscribe();
+    }
   }
 
   decreaseDays() {

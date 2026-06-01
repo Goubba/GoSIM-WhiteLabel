@@ -178,6 +178,9 @@ export default {
       } else {
         this.selectedPackage = this.fixedPackages[0];
       }
+    },
+    '$i18n.locale'() {
+      this.getPackages();
     }
   },
   computed: {

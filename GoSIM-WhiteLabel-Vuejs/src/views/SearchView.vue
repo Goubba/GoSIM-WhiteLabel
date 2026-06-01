@@ -73,7 +73,7 @@
               <div class="flex gap-2 items-center justify-start  font-medium text-sm p-3 text-gray-700 ">
                 <img :src="location.image"
                   class="size-10 sm:size-12 rounded-full object-cover border border-gray-400" />
-                <div>
+                <div class="rtl:text-right text-left">
                   <p class="line-clamp-1"> {{ location.name }} </p>
                   <span class="text-xs sm:text-sm line-clamp-1" v-if="location.fromPrice">
                     {{ $t('home.startingAt') }} {{ $currencyFormatter(location.fromPrice) }}
@@ -115,6 +115,9 @@ export default {
       this.debounceTimer = setTimeout(() => {
         this.getLocations();
       }, 300);
+    },
+    '$i18n.locale'() {
+      this.getLocations();
     },
   },
   methods: {

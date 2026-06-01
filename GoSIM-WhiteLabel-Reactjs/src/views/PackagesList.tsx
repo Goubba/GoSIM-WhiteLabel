@@ -70,7 +70,7 @@ export const PackagesList: React.FC = () => {
 
   useEffect(() => {
     getPackages();
-  }, [code, currency]);
+  }, [code, currency, language]);
 
   // Adjust package tab change
   const handleTypeChange = (newType: 'unlimited' | 'fixed') => {

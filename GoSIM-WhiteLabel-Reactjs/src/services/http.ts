@@ -15,6 +15,11 @@ http.interceptors.request.use((config) => {
   if (customHost) {
     config.baseURL = customHost;
   }
+
+  if (config.url && (config.url.includes('locations') || config.url.includes('packages'))) {
+    config.params = config.params || {};
+    config.params.language = sessionStorage.getItem('language') || 'fr';
+  }
   
   return config;
 });

@@ -14,7 +14,11 @@ export class UtilsService {
       minimumFractionDigits: decimals,
       maximumFractionDigits: decimals,
     }).format(val);
-    return `${data} ${currency}`;
+
+    const isArabic = sessionStorage.getItem('lang') === 'ar';
+    const displayCurrency = (currency === 'DZD' && isArabic) ? 'د.ج' : currency;
+
+    return `${data} ${displayCurrency}`;
   }
 
   dateFormatterWithTime(val: string): string {

@@ -34,7 +34,10 @@ export function currencyFormatter(val) {
     maximumFractionDigits: decimals,
   }).format(val);
 
-  return `${data} ${currency}`;
+  const isArabic = sessionStorage.getItem('lang') === 'ar';
+  const displayCurrency = (currency === 'DZD' && isArabic) ? 'د.ج' : currency;
+
+  return `${data} ${displayCurrency}`;
 }
 
 export function dateFormatterWithTime(val) {

@@ -26,6 +26,11 @@ export class HttpService {
         config.baseURL = this.indexService.host;
       }
 
+      if (config.url && (config.url.includes('locations') || config.url.includes('packages'))) {
+        config.params = config.params || {};
+        config.params.language = this.indexService.lang || 'fr';
+      }
+
       return config;
     });
   }
